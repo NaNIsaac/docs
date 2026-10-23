@@ -39,6 +39,23 @@
     "tagline": "Phase retrieval for coherent diffraction imaging in C++20 and CUDA, with the algorithms of QoraPhase."
   },
   {
+    "slug": "qoradfxm",
+    "repo": "NaNIsaac/QoraDFXM",
+    "ref": "main",
+    "docs_path": "docs",
+    "title": "QoraDFXM",
+    "tagline": "Ellipse fits and ring profiles on dark-field X-ray microscopy detector images, from a CLI or a desktop app."
+  },
+  {
+    "slug": "qoraholo",
+    "repo": "NaNIsaac/QoraHolo",
+    "ref": "main",
+    "docs_path": "docs",
+    "package": "python/qoraholo",
+    "title": "QoraHolo",
+    "tagline": "Holotomography in C++20 and CUDA: off-axis holograms in, a 3D refractive-index volume out."
+  },
+  {
     "slug": "qoraflow",
     "repo": "NaNIsaac/QoraFlow",
     "ref": "main",
