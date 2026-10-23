@@ -18,7 +18,7 @@
   {
     "slug": "qoraholo",
     "repo": "NaNIsaac/QoraHolo",
-    "ref": "docs/site",
+    "ref": "main",
     "docs_path": "docs",
     "package": "python/qoraholo",
     "title": "QoraHolo",
