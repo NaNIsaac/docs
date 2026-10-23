@@ -44,7 +44,8 @@ def find_package(checkout: Path, project: dict) -> Path | None:
         return None
     name = re.sub(r"[-.]+", "_", name).lower()
     for candidate in (checkout / "src" / name, checkout / name):
-        if (candidate / "__init__.py").is_file():
+        # A namespace package (PEP 420) has modules but no __init__.py.
+        if candidate.is_dir() and any(candidate.rglob("*.py")):
             return candidate
     return None
 
