@@ -45,6 +45,10 @@ files listed there are published; images and other non-Markdown files in `docs/`
 Relative links that leave the published pages, such as `../README.md`, `../src/...` or an unlisted page,
 are rewritten to the file on GitHub at `ref`.
 
+Text between dollar signs is typeset as TeX: `$...$` inline, `$$...$$` on its own lines. It is rendered to
+SVG during the build, so no math script runs in the browser. A literal dollar sign belongs in code
+(`` `$DATA` ``), where it is left alone.
+
 ## What the build does
 
 `.github/workflows/docs.yml` runs on pushes to `main`, on pull requests, by hand, and on a

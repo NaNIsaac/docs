@@ -16,17 +16,25 @@
     "tagline": "Differentiable X-ray reflectivity modeling, neural inference and physics-based refinement for thin films."
   },
   {
-    "slug": "qoradfxm",
-    "repo": "NaNIsaac/QoraDFXM",
+    "slug": "tratt",
+    "repo": "NaNIsaac/TraTT",
     "ref": "main",
     "docs_path": "docs",
-    "title": "QoraDFXM",
-    "tagline": "Ellipse fits and ring profiles on dark-field X-ray microscopy detector images, from a CLI or a desktop app."
+    "title": "TraTT",
+    "tagline": "Time-dependent Takagi-Taupin: X-ray diffraction satellites while a sound wave enters a crystal."
   },
   {
     "slug": "codigest",
     "url": "https://nanisaac.github.io/codigest/",
     "title": "Codigest",
     "tagline": "Turn a codebase, diffs and terminal output into context for an AI. CLI and MCP server."
+  },
+  {
+    "slug": "qoradfxm",
+    "repo": "NaNIsaac/QoraDFXM",
+    "ref": "main",
+    "docs_path": "docs",
+    "title": "QoraDFXM",
+    "tagline": "Ellipse fits and ring profiles on dark-field X-ray microscopy detector images, from a CLI or a desktop app."
   }
 ]
