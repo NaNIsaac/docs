@@ -26,6 +26,8 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v10.3.0
+        with:
+          enable-cache: false  # nothing to cache: the scripts use only the standard library
       - run: uv python install 3.14
       - name: Lint the scripts
         run: |
