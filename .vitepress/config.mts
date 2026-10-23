@@ -54,6 +54,8 @@ export default defineConfig({
   cleanUrls: true,
   appearance: 'dark',
   head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/docs/favicon.svg' }]],
+  // $...$ and $$...$$ are rendered to SVG at build time (markdown-it-mathjax3); no math script runs in the browser.
+  markdown: { math: true },
 
   transformPageData(page) {
     page.frontmatter.sourceUrl = sourceUrl(page.relativePath)
