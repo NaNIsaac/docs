@@ -26,7 +26,7 @@
   {
     "slug": "reflectosim",
     "repo": "NaNIsaac/ReflectoSim",
-    "ref": "docs/hub",
+    "ref": "main",
     "docs_path": "docs",
     "title": "ReflectoSim",
     "tagline": "Realistic synthetic X-ray reflectivity data for machine learning, on the ReflectoFit forward model."
