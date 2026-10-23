@@ -18,7 +18,7 @@
   {
     "slug": "reflectofit",
     "repo": "NaNIsaac/ReflectoFit",
-    "ref": "docs/hub",
+    "ref": "main",
     "docs_path": "docs",
     "title": "ReflectoFit",
     "tagline": "X-ray reflectivity fitting engine and command line: float64 Parratt kernel, instrument model, least squares and differential evolution."
