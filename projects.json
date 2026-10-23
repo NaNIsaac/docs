@@ -2,7 +2,7 @@
   {
     "slug": "qoraphase",
     "repo": "NaNIsaac/QoraPhase",
-    "ref": "main",
+    "ref": "docs/site",
     "docs_path": "docs",
     "title": "QoraPhase",
     "tagline": "JAX-native, composable phase retrieval for coherent diffraction imaging (CDI, BCDI)."
