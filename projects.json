@@ -18,7 +18,7 @@
   {
     "slug": "qoraflow",
     "repo": "NaNIsaac/QoraFlow",
-    "ref": "docs/site",
+    "ref": "main",
     "docs_path": "docs",
     "title": "QoraFlow",
     "tagline": "Reduce PAL-XFEL pump-probe diffraction runs to laser-on/off images per delay, then to ROI curves."
