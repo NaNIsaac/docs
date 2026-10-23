@@ -1,0 +1,62 @@
+name: Docs
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  # A project repository can rebuild the site when its docs/ changes:
+  # POST /repos/NaNIsaac/docs/dispatches {"event_type": "docs-changed"}
+  repository_dispatch:
+    types: [docs-changed]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Pull requests only build; each gets its own group so it never queues behind a deploy.
+concurrency:
+  group: ${{ github.event_name == 'pull_request' && format('docs-{0}', github.ref) || 'pages' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.0
+      - run: uv python install 3.14
+      - name: Lint the scripts
+        run: |
+          uvx ruff@0.17.1 check scripts
+          uvx ruff@0.17.1 format --check scripts
+      - name: Collect project docs
+        run: uv run --no-project -p 3.14 python -I scripts/sync.py
+      - name: Generate API pages
+        run: uv run --no-project -p 3.14 python -I scripts/api_md.py
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      - uses: actions/configure-pages@v6.0.0
+        if: github.event_name != 'pull_request'
+      - run: npm ci
+      - run: npm run build
+      - name: Check links and anchors in the built site
+        run: uv run --no-project -p 3.14 python -I scripts/check_links.py
+      - uses: actions/upload-pages-artifact@v5.0.0
+        if: github.event_name != 'pull_request'
+        with:
+          path: .vitepress/dist
+
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5.0.1

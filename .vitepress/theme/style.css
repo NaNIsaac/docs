@@ -1,0 +1,158 @@
+/* Accent: one muted teal. Light mode uses the darker steps for contrast on white. */
+:root {
+  --vp-c-brand-1: #0f766e;
+  --vp-c-brand-2: #0d9488;
+  --vp-c-brand-3: #115e59;
+  --vp-c-brand-soft: rgb(13 148 136 / 0.12);
+
+  --vp-button-brand-bg: #0f766e;
+  --vp-button-brand-hover-bg: #0d9488;
+  --vp-button-brand-active-bg: #115e59;
+  --vp-button-brand-text: #fff;
+
+  --vp-home-hero-name-color: var(--vp-c-text-1);
+
+  --vp-code-block-bg: #f5f7f7;
+  --vp-code-line-highlight-color: rgb(13 148 136 / 0.1);
+  --vp-custom-block-tip-text: var(--vp-c-brand-1);
+
+  --vp-font-family-base: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic',
+    'Noto Sans KR', sans-serif;
+  --vp-font-family-mono: ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, Consolas, 'D2Coding', monospace;
+}
+
+.dark {
+  --vp-c-brand-1: #2dd4bf;
+  --vp-c-brand-2: #14b8a6;
+  --vp-c-brand-3: #0d9488;
+  --vp-c-brand-soft: rgb(45 212 191 / 0.14);
+
+  --vp-button-brand-bg: #0f766e;
+  --vp-button-brand-hover-bg: #0d9488;
+  --vp-button-brand-active-bg: #115e59;
+
+  --vp-c-bg: #111416;
+  --vp-c-bg-alt: #0c0f10;
+  --vp-c-bg-elv: #181c1e;
+  --vp-c-bg-soft: #161a1c;
+  --vp-code-block-bg: #0c0f10;
+}
+
+.vp-doc div[class*='language-'] {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+}
+
+.vp-doc [class*='language-'] code {
+  font-size: 0.86em;
+  line-height: 1.55;
+}
+
+.vp-doc h2 {
+  border-top: none;
+  margin-top: 40px;
+}
+
+.vp-doc table {
+  font-size: 0.92em;
+}
+
+.vp-doc img {
+  border-radius: 6px;
+}
+
+/* Docstrings on the generated API pages: keep numpydoc layout, read as prose. */
+.vp-doc pre.api-doc {
+  margin: 8px 0 24px;
+  padding: 0 0 0 14px;
+  border-left: 2px solid var(--vp-c-divider);
+  font-family: var(--vp-font-family-base);
+  font-size: 0.94em;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--vp-c-text-2);
+}
+
+.vp-doc h4 {
+  font-family: var(--vp-font-family-mono);
+  font-size: 15px;
+}
+
+/* Home */
+.VPHome {
+  overflow-x: clip;
+}
+
+.VPHomeHero {
+  border-bottom: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-alt);
+}
+
+.VPHero .tagline {
+  max-width: 680px;
+}
+
+.VPHome .vp-doc {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+}
+
+.vp-doc ul.project-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 16px;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none;
+}
+
+.vp-doc .project-cards li {
+  margin: 0;
+}
+
+.vp-doc a.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  padding: 20px 22px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+
+.vp-doc a.project-card:hover,
+.vp-doc a.project-card:focus-visible {
+  border-color: var(--vp-c-brand-1);
+}
+
+.project-card .title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+}
+
+.project-card .tagline {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--vp-c-text-2);
+}
+
+.project-card .meta {
+  font-family: var(--vp-font-family-mono);
+  font-size: 12.5px;
+  color: var(--vp-c-text-3);
+}
+
+@media (min-width: 960px) {
+  .VPHero .name {
+    font-size: 44px;
+    line-height: 1.15;
+  }
+}

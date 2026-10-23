@@ -1,0 +1,10 @@
+node_modules/
+.vitepress/cache/
+.vitepress/dist/
+.vitepress/generated/
+.cache/
+
+# Everything under site/ except the home page and public/ is copied in by scripts/sync.py.
+/site/*
+!/site/index.md
+!/site/public/
