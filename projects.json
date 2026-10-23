@@ -18,7 +18,7 @@
   {
     "slug": "tratt",
     "repo": "NaNIsaac/TraTT",
-    "ref": "docs/site",
+    "ref": "main",
     "docs_path": "docs",
     "title": "TraTT",
     "tagline": "Time-dependent Takagi-Taupin: X-ray diffraction satellites while a sound wave enters a crystal."
