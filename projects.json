@@ -54,5 +54,13 @@
     "package": "python/qoraholo",
     "title": "QoraHolo",
     "tagline": "Holotomography in C++20 and CUDA: off-axis holograms in, a 3D refractive-index volume out."
+  },
+  {
+    "slug": "qoraflow",
+    "repo": "NaNIsaac/QoraFlow",
+    "ref": "main",
+    "docs_path": "docs",
+    "title": "QoraFlow",
+    "tagline": "Reduce PAL-XFEL pump-probe diffraction runs to laser-on/off images per delay, then to ROI curves."
   }
 ]
