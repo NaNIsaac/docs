@@ -18,7 +18,7 @@
   {
     "slug": "qoradfxm",
     "repo": "NaNIsaac/QoraDFXM",
-    "ref": "docs/site",
+    "ref": "main",
     "docs_path": "docs",
     "title": "QoraDFXM",
     "tagline": "Ellipse fits and ring profiles on dark-field X-ray microscopy detector images, from a CLI or a desktop app."
