@@ -5,7 +5,10 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
-  # A project repository can rebuild the site when its docs/ changes:
+  # Project docs/ changes reach the site on the nightly rebuild (no cross-repo token needed).
+  schedule:
+    - cron: "0 18 * * *"  # 03:00 KST
+  # A project repository can also rebuild the site right away when its docs/ changes:
   # POST /repos/NaNIsaac/docs/dispatches {"event_type": "docs-changed"}
   repository_dispatch:
     types: [docs-changed]
