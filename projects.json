@@ -28,5 +28,39 @@
     "url": "https://nanisaac.github.io/codigest/",
     "title": "Codigest",
     "tagline": "Turn a codebase, diffs and terminal output into context for an AI. CLI and MCP server."
+  },
+  {
+    "slug": "qoraphasecu",
+    "repo": "NaNIsaac/QoraPhaseCU",
+    "ref": "main",
+    "docs_path": "docs",
+    "package": "python/qoraphasecu",
+    "title": "QoraPhaseCU",
+    "tagline": "Phase retrieval for coherent diffraction imaging in C++20 and CUDA, with the algorithms of QoraPhase."
+  },
+  {
+    "slug": "qoradfxm",
+    "repo": "NaNIsaac/QoraDFXM",
+    "ref": "main",
+    "docs_path": "docs",
+    "title": "QoraDFXM",
+    "tagline": "Ellipse fits and ring profiles on dark-field X-ray microscopy detector images, from a CLI or a desktop app."
+  },
+  {
+    "slug": "qoraholo",
+    "repo": "NaNIsaac/QoraHolo",
+    "ref": "main",
+    "docs_path": "docs",
+    "package": "python/qoraholo",
+    "title": "QoraHolo",
+    "tagline": "Holotomography in C++20 and CUDA: off-axis holograms in, a 3D refractive-index volume out."
+  },
+  {
+    "slug": "qoraflow",
+    "repo": "NaNIsaac/QoraFlow",
+    "ref": "main",
+    "docs_path": "docs",
+    "title": "QoraFlow",
+    "tagline": "Reduce PAL-XFEL pump-probe diffraction runs to laser-on/off images per delay, then to ROI curves."
   }
 ]

@@ -43,9 +43,14 @@ def find_package(checkout: Path, project: dict) -> Path | None:
     if not name:
         return None
     name = re.sub(r"[-.]+", "_", name).lower()
-    for candidate in (checkout / "src" / name, checkout / name):
-        if (candidate / "__init__.py").is_file():
-            return candidate
+    for parent in (checkout / "src", checkout):
+        if not parent.is_dir():
+            continue
+        # The directory may differ in case from the project name (src/QoraFlow for qoraflow), and a
+        # namespace package (PEP 420) has modules but no __init__.py.
+        for candidate in sorted(parent.iterdir()):
+            if candidate.is_dir() and candidate.name.lower() == name and any(candidate.rglob("*.py")):
+                return candidate
     return None
 
 
