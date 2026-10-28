@@ -69,6 +69,7 @@ export default defineConfig({
         text: 'Projects',
         items: projects.map((p) => ({ text: p.title, link: p.url ?? `/${p.slug}/` })),
       },
+      { text: 'Architecture', link: '/arch/' },
       { text: 'NaNIsaac', link: 'https://github.com/NaNIsaac' },
     ],
     sidebar: Object.fromEntries(hosted.map((p) => [`/${p.slug}/`, sidebar(p)])),
