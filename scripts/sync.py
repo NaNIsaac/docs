@@ -115,7 +115,7 @@ class Rewriter:
         kind = "tree" if is_dir else "blob"
         return f"https://github.com/{self.project['repo']}/{kind}/{self.project['ref']}/{repo_path}"
 
-    def target(self, page: str, raw: str) -> str:
+    def target(self, page: str, raw: str, embed: bool = False) -> str:
         bracketed = raw.startswith("<") and raw.endswith(">")
         href = raw[1:-1] if bracketed else raw
         if not href or href.startswith(("#", "/")) or SCHEME.match(href):
@@ -131,7 +131,9 @@ class Rewriter:
             return raw
         inside = repo_path.startswith(self.docs_path + "/")
         docs_rel = repo_path.removeprefix(self.docs_path + "/")
-        if inside and (not docs_rel.endswith(".md") or docs_rel in self.published) and local.is_file():
+        # The build bundles only pages and the files a page embeds, so a plain link to a data file
+        # (a .json next to the docs, say) would have no target on the site.
+        if inside and local.is_file() and (docs_rel in self.published if docs_rel.endswith(".md") else embed):
             return raw
         url = self.github(repo_path, local.is_dir()) + sep + fragment
         return f"<{url}>" if bracketed else url
@@ -151,9 +153,9 @@ class Rewriter:
             if fence:
                 out.append(line)
                 continue
-            line = INLINE_LINK.sub(lambda m: m[1] + self.target(page, m[2]) + m[3], line)
+            line = INLINE_LINK.sub(lambda m: m[1] + self.target(page, m[2], m[1].startswith("!")) + m[3], line)
             line = REFERENCE_LINK.sub(lambda m: m[1] + self.target(page, m[2]) + m[3], line)
-            line = HTML_LINK.sub(lambda m: m[1] + self.target(page, m[2]) + m[3], line)
+            line = HTML_LINK.sub(lambda m: m[1] + self.target(page, m[2], m[1].lstrip().startswith("src")) + m[3], line)
             out.append(line)
         return "".join(out)
 
