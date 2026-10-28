@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="t d">
+  <title id="t">Agent orchestration (orc): three flows</title>
+  <desc id="d">Flow 1: an owner order goes through secretary and boss to a lane, which opens a pull request and reports READY; secretary reviews, the owner approves the merge, boss deploys. Flow 2: a question gets a number, goes on the owner board, and the owner's answer is recorded and relayed. Flow 3: the sentinel checks quotas and health, sends an alert line, and boss acts or raises an owner to-do.</desc>
+  <style>
+    svg { --bg: #ffffff; --fg: #1f2937; --muted: #4b5563; --core: #0f766e; --core-fill: #ecfdf5; --ovl: #b45309; --ovl-fill: #fffbeb; --line: #374151; --group: #f3f4f6; }
+    @media (prefers-color-scheme: dark) {
+      svg { --bg: #111827; --fg: #e5e7eb; --muted: #9ca3af; --core: #5eead4; --core-fill: #0f2f2b; --ovl: #fbbf24; --ovl-fill: #2f2410; --line: #d1d5db; --group: #18212f; }
+    }
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; fill: var(--fg); font-size: 13px; }
+    .bg { fill: var(--bg); }
+    .h1 { font-size: 22px; font-weight: 700; }
+    .h2 { font-size: 16px; font-weight: 700; }
+    .who { font-size: 14px; font-weight: 700; }
+    .sub { fill: var(--muted); font-size: 13px; }
+    .core { fill: var(--core-fill); stroke: var(--core); stroke-width: 2; }
+    .ovl { fill: var(--ovl-fill); stroke: var(--ovl); stroke-width: 2; stroke-dasharray: 7 4; }
+    .group { fill: var(--group); stroke: var(--muted); stroke-width: 1; }
+    .arrow { stroke: var(--line); stroke-width: 1.8; fill: none; marker-end: url(#head); }
+    #head path { fill: var(--line); }
+  </style>
+  <defs>
+    <marker id="head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z"/></marker>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1200" height="800"/>
+
+  <text class="h1" x="30" y="40">Agent orchestration (orc): three flows</text>
+  <text class="sub" x="30" y="62">Each box names who acts, then what happens. Parts are drawn in orc-overview.svg.</text>
+
+  <!-- flow 1 -->
+  <rect class="group" x="20" y="80" width="1160" height="196" rx="12"/>
+  <text class="h2" x="36" y="104">1. Order to deploy</text>
+
+  <rect class="ovl" x="36" y="120" width="146" height="140" rx="8"/>
+  <text class="who" x="48" y="142">owner</text>
+  <text x="48" y="164">gives an order on</text>
+  <text x="48" y="182">the web app, phone</text>
+  <text x="48" y="200">or in secretary's</text>
+  <text x="48" y="218">pane</text>
+
+  <rect class="core" x="198" y="120" width="146" height="140" rx="8"/>
+  <text class="who" x="210" y="142">secretary</text>
+  <text x="210" y="164">forwards it to boss</text>
+  <text x="210" y="182">word for word; own</text>
+  <text x="210" y="200">notes kept apart</text>
+  <text x="210" y="218">and marked</text>
+
+  <rect class="core" x="360" y="120" width="146" height="140" rx="8"/>
+  <text class="who" x="372" y="142">boss</text>
+  <text x="372" y="164">writes a lane brief;</text>
+  <text x="372" y="182">grants a slot for</text>
+  <text x="372" y="200">runs over 2 min</text>
+  <text x="372" y="218">or 2 GB</text>
+
+  <rect class="core" x="522" y="120" width="146" height="140" rx="8"/>
+  <text class="who" x="534" y="142">lane</text>
+  <text x="534" y="164">branch in its own</text>
+  <text x="534" y="182">worktree, runs CI's</text>
+  <text x="534" y="200">checks, opens a PR</text>
+  <text x="534" y="218">ending in a local-ci</text>
+  <text x="534" y="236">line</text>
+
+  <rect class="core" x="684" y="120" width="146" height="140" rx="8"/>
+  <text class="who" x="696" y="142">lane</text>
+  <text x="696" y="164">CI green: one line</text>
+  <text x="696" y="182">"READY repo#N" to</text>
+  <text x="696" y="200">secretary through</text>
+  <text x="696" y="218">the lane-state tool</text>
+
+  <rect class="core" x="846" y="120" width="146" height="140" rx="8"/>
+  <text class="who" x="858" y="142">secretary + owner</text>
+  <text x="858" y="164">secretary reviews;</text>
+  <text x="858" y="182">owner merges, or</text>
+  <text x="858" y="200">secretary merges a</text>
+  <text x="858" y="218">PR the owner named.</text>
+  <text x="858" y="236">Fixes go to the lane</text>
+
+  <rect class="core" x="1008" y="120" width="156" height="140" rx="8"/>
+  <text class="who" x="1020" y="142">boss</text>
+  <text x="1020" y="164">deploys or restarts</text>
+  <text x="1020" y="182">the changed service</text>
+  <text x="1020" y="200">(web app, tools)</text>
+
+  <path class="arrow" d="M182,190 L196,190"/>
+  <path class="arrow" d="M344,190 L358,190"/>
+  <path class="arrow" d="M506,190 L520,190"/>
+  <path class="arrow" d="M668,190 L682,190"/>
+  <path class="arrow" d="M830,190 L844,190"/>
+  <path class="arrow" d="M992,190 L1006,190"/>
+
+  <!-- flow 2 -->
+  <rect class="group" x="20" y="296" width="1160" height="196" rx="12"/>
+  <text class="h2" x="36" y="320">2. Question to answer</text>
+
+  <rect class="core" x="36" y="336" width="176" height="140" rx="8"/>
+  <text class="who" x="48" y="358">any agent</text>
+  <text x="48" y="380">hits a choice only the</text>
+  <text x="48" y="398">owner can make; sends</text>
+  <text x="48" y="416">options and one</text>
+  <text x="48" y="434">recommendation to boss</text>
+
+  <rect class="core" x="228" y="336" width="176" height="140" rx="8"/>
+  <text class="who" x="240" y="358">secretary</text>
+  <text x="240" y="380">asks it as "Qn" with</text>
+  <text x="240" y="398">the next number from</text>
+  <text x="240" y="416">the question ledger</text>
+
+  <rect class="core" x="420" y="336" width="176" height="140" rx="8"/>
+  <text class="who" x="432" y="358">Q-AUTO hook</text>
+  <text x="432" y="380">registers Qn as an</text>
+  <text x="432" y="398">item on the owner</text>
+  <text x="432" y="416">board (in the</text>
+  <text x="432" y="434">background)</text>
+
+  <rect class="ovl" x="612" y="336" width="176" height="140" rx="8"/>
+  <text class="who" x="624" y="358">owner</text>
+  <text x="624" y="380">answers "Qn a" on the</text>
+  <text x="624" y="398">web app's to-do card</text>
+  <text x="624" y="416">or in secretary's</text>
+  <text x="624" y="434">pane</text>
+
+  <rect class="core" x="804" y="336" width="176" height="140" rx="8"/>
+  <text class="who" x="816" y="358">Q-AUTO hook</text>
+  <text x="816" y="380">records the answer</text>
+  <text x="816" y="398">in the ledger and</text>
+  <text x="816" y="416">closes the board item</text>
+
+  <rect class="core" x="996" y="336" width="168" height="140" rx="8"/>
+  <text class="who" x="1008" y="358">secretary, boss</text>
+  <text x="1008" y="380">answer goes back to</text>
+  <text x="1008" y="398">the lane; an orc</text>
+  <text x="1008" y="416">decision also gets a</text>
+  <text x="1008" y="434">row in the decision</text>
+  <text x="1008" y="452">table</text>
+
+  <path class="arrow" d="M212,406 L226,406"/>
+  <path class="arrow" d="M404,406 L418,406"/>
+  <path class="arrow" d="M596,406 L610,406"/>
+  <path class="arrow" d="M788,406 L802,406"/>
+  <path class="arrow" d="M980,406 L994,406"/>
+
+  <!-- flow 3 -->
+  <rect class="group" x="20" y="512" width="1160" height="214" rx="12"/>
+  <text class="h2" x="36" y="536">3. Quota or health check to action</text>
+
+  <rect class="core" x="36" y="552" width="176" height="158" rx="8"/>
+  <text class="who" x="48" y="574">sentinel</text>
+  <text x="48" y="596">reads state every</text>
+  <text x="48" y="614">30 s; quota, usage</text>
+  <text x="48" y="632">and the board on</text>
+  <text x="48" y="650">their own timers</text>
+
+  <rect class="core" x="228" y="552" width="220" height="158" rx="8"/>
+  <text class="who" x="240" y="574">threshold crossed</text>
+  <text x="240" y="596">GitHub API or CI minutes 80 %;</text>
+  <text x="240" y="614">router budget 80 %; model</text>
+  <text x="240" y="632">window 70 % or 90 %; service</text>
+  <text x="240" y="650">down; agent blocked or gone;</text>
+  <text x="240" y="668">board item stale 2+ days</text>
+
+  <rect class="core" x="464" y="552" width="200" height="158" rx="8"/>
+  <text class="who" x="476" y="574">alert</text>
+  <text x="476" y="596">one line through courier:</text>
+  <text x="476" y="614">quota, stale board items</text>
+  <text x="476" y="632">to secretary and boss;</text>
+  <text x="476" y="650">service, blocked, drift</text>
+  <text x="476" y="668">to boss; context limit to</text>
+  <text x="476" y="686">the compact owner</text>
+
+  <rect class="core" x="680" y="552" width="230" height="158" rx="8"/>
+  <text class="who" x="692" y="574">boss acts</text>
+  <text x="692" y="596">holds or queues runs, moves</text>
+  <text x="692" y="614">work to another account or</text>
+  <text x="692" y="632">tool, asks a lane to compact</text>
+  <text x="692" y="650">or stop, fixes the service</text>
+
+  <rect class="ovl" x="926" y="552" width="238" height="158" rx="8"/>
+  <text class="who" x="938" y="574">owner to-do</text>
+  <text x="938" y="596">only for what a human must</text>
+  <text x="938" y="614">do: a login, an install, a</text>
+  <text x="938" y="632">physical step, a decision</text>
+
+  <path class="arrow" d="M212,630 L226,630"/>
+  <path class="arrow" d="M448,630 L462,630"/>
+  <path class="arrow" d="M664,630 L678,630"/>
+  <path class="arrow" d="M910,630 L924,630"/>
+
+  <text class="sub" x="36" y="752">The sentinel and its tools only read: they never restart, close panes, touch git or merge. Every merge needs the owner's OK for that PR.</text>
+  <rect class="core" x="36" y="768" width="34" height="18" rx="4"/>
+  <text x="80" y="782">core: reusable orc pattern</text>
+  <rect class="ovl" x="300" y="768" width="34" height="18" rx="4"/>
+  <text x="344" y="782">overlay: the owner and this setup's services</text>
+</svg>

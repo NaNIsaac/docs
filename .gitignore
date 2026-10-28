@@ -4,7 +4,8 @@ node_modules/
 .vitepress/generated/
 .cache/
 
-# Everything under site/ except the home page and public/ is copied in by scripts/sync.py.
+# Everything under site/ except the home page, public/ and arch/ is copied in by scripts/sync.py.
 /site/*
 !/site/index.md
 !/site/public/
+!/site/arch/
