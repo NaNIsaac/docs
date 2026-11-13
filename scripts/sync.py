@@ -83,6 +83,10 @@ def link_path(page: str) -> str:
     return stem.removesuffix("/index") + "/" if stem.endswith("/index") else stem
 
 
+def is_external(link: str) -> bool:
+    return link.startswith(("https://", "http://"))
+
+
 def read_nav(docs: Path) -> list[dict] | None:
     nav = docs / "nav.json"
     if not nav.is_file():
@@ -90,6 +94,8 @@ def read_nav(docs: Path) -> list[dict] | None:
     groups = json.loads(nav.read_text(encoding="utf-8"))["sidebar"]
     for group in groups:
         for item in group["items"]:
+            if is_external(item["link"]):
+                continue
             page = item["link"].partition("#")[0]
             if not page.endswith(".md") or not (docs / page).is_file():
                 raise SystemExit(f"{nav}: {item['link']} is not a Markdown file in {docs.name}/")
@@ -179,7 +185,9 @@ def sync(project: dict, checkout: Path) -> dict:
         raise SystemExit(f"{project['repo']}@{project['ref']} has no {project['docs_path']}/")
 
     groups = read_nav(docs) or default_nav(docs)
-    published = {item["link"].partition("#")[0] for group in groups for item in group["items"]}
+    published = {
+        item["link"].partition("#")[0] for group in groups for item in group["items"] if not is_external(item["link"])
+    }
 
     dest = SITE / slug
     remove(dest)
@@ -210,7 +218,9 @@ def sync(project: dict, checkout: Path) -> dict:
         {
             "text": group["text"],
             "items": [
-                {"text": item["text"], "link": f"/{slug}/{link_path(page)}" + (f"#{anchor}" if anchor else "")}
+                item
+                if is_external(item["link"])
+                else {"text": item["text"], "link": f"/{slug}/{link_path(page)}" + (f"#{anchor}" if anchor else "")}
                 for item in group["items"]
                 for page, _, anchor in [item["link"].partition("#")]
             ],
