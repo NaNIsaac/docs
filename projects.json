@@ -8,6 +8,30 @@
     "tagline": "JAX-native, composable phase retrieval for coherent diffraction imaging (CDI, BCDI)."
   },
   {
+    "slug": "qorageom",
+    "repo": "NaNIsaac/QoraGeom",
+    "ref": "main",
+    "docs_path": "docs",
+    "title": "QoraGeom",
+    "tagline": "X-ray diffraction geometry, SPEC parsing and detector-frame loaders: per-pixel 2θ and |q|, and the BCDI reciprocal-space bases."
+  },
+  {
+    "slug": "cxd",
+    "repo": "NaNIsaac/CXD",
+    "ref": "main",
+    "docs_path": "docs",
+    "title": "CXD",
+    "tagline": "Bragg coherent X-ray diffraction scans reduced: SPEC and Timepix frames, rocking curves regridded to q, and the result in 3D."
+  },
+  {
+    "slug": "splotter",
+    "repo": "NaNIsaac/splotter",
+    "ref": "main",
+    "docs_path": "docs",
+    "title": "splotter",
+    "tagline": "SPEC scan files read at a prompt or from Python: scan lists, motor and counter values, mesh maps and rocking-curve widths."
+  },
+  {
     "slug": "reflectolearn",
     "repo": "NaNIsaac-Research/ReflectoLearn",
     "ref": "main",
