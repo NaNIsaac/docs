@@ -35,6 +35,18 @@ function sidebar(p: Project): DefaultTheme.SidebarItem[] {
   return [{ text: p.title, link: `/${p.slug}/`, items: groups }]
 }
 
+// Heading anchors the way GitHub writes them, so a link written for GitHub (tratt/lineage#2-scripts-and-notebook-entries,
+// say) finds the same id on the site. VitePress's own slugify replaces the punctuation with hyphens and puts an
+// underscore in front of a heading that starts with a digit (#_2-...), which GitHub does not.
+function slugify(text: string): string {
+  return text
+    .normalize('NFKC')
+    .toLowerCase()
+    .replace(/[^\p{L}\p{M}\p{N}_\s-]/gu, '')
+    .trim()
+    .replace(/\s/g, '-')
+}
+
 // The URL of the file a page was copied from; the theme's pattern below cannot see this module.
 function sourceUrl(filePath: string): string {
   const [slug, ...rest] = filePath.split('/')
@@ -55,7 +67,7 @@ export default defineConfig({
   appearance: 'dark',
   head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/docs/favicon.svg' }]],
   // $...$ and $$...$$ are rendered to SVG at build time (markdown-it-mathjax3); no math script runs in the browser.
-  markdown: { math: true },
+  markdown: { math: true, anchor: { slugify } },
 
   transformPageData(page) {
     page.frontmatter.sourceUrl = sourceUrl(page.relativePath)
