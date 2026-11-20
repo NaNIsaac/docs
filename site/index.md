@@ -5,7 +5,8 @@ title: NaNIsaac docs
 hero:
   name: NaNIsaac docs
   tagline: >
-    Documentation for the research software in the NaNIsaac organization, one section per project.
+    Documentation for the research software in the NaNIsaac and NaNIsaac-Research
+    organizations, one section per project.
     Each section is built from the docs/ directory of that project's repository.
 ---
 
